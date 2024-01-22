@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: openflight_database
+    description: Database is created for demo purpose.
+    database: analytics
+    schema: raw
+    tables:
+      - name: airports
+        description: Table contains location details of airports in 5 countries, including USA, Palau, Thailand, Federated States of Micronesia, and N Mariana Islands.
+        columns:
+          - name: iata_code
+            description: Airport code standardized by the International Air Transport Association (IATA)
+            tests:
+              - unique
+              - not_null
+              # - dbt_expectations.expect_column_value_lengths_to_be_between:
+              #     min_value: 1
+              #     max_value: 7
+              # - expect_blacklist_code_count_to_exceed_threshold:
+              #     error_if: ">20"
+              #     warn_if: ">10"
+      - name: airlines
+        desciption: Table contains code of each airline and its associated name. 
+        columns:
+          - name: code
+            description: Airline code standardized by the International Air Transport Association (IATA)
+            tests: 
+              - unique
+              - not_null
+      - name: customers
+        description: Table contains data of passengers, including their demographic details and travel history
+      # - name: daily_passengers_20230618
+      #   description: Table contains data relating to the entry and/or exit of passengers in 18/06/2023 
+      #   loaded_at_field: _etl_loaded_at
+      #   freshness: 
+      #     warn_after:
+      #       count: 12
+      #       period: hour
+      #     error_after:
+      #       count: 24
+      #       period: hour
+      - name: plane
+        description: Table contains technical specifications of active airplanes, such as manufacturer, model, engine type, etc. 
+      - name: flights_2008
+        desciption:
+          Table encompasses flight-specific data, e.g. routes, schedules, durations, delay, etc. 

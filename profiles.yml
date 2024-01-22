@@ -1,0 +1,14 @@
+dbt_demo:
+  target: dev
+  outputs:
+    dev:
+      account: kz46845.southeast-asia.azure
+      database: ANALYTICS
+      password: Minhtruc_0203
+      role: ACCOUNTADMIN
+      schema: MODELS
+      threads: 3
+      type: snowflake
+      user: trucduong
+      warehouse: COMPUTE_WH
+  

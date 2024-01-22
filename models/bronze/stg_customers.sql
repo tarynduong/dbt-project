@@ -1,0 +1,1 @@
+select * from {{ source('openflight_database', 'customers') }}
