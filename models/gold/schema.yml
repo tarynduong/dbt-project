@@ -1,0 +1,16 @@
+models:
+  - name: cleaned_flights
+    description: '{{ doc("flights_status") }}'
+    config:
+      contract:
+        enforced: false
+    columns:
+      - name: flight_id
+        description: Unique identifier for each flight record.
+        data_type: string
+        constraints:
+          - type: not_null
+  - name: cleaned_airlines
+    description: Generates a transformed view of airport data, standardizing and enriching location information and making stable.
+      Provides an enriched dataset for analytical purposes without altering the original data.    
+      

@@ -1,0 +1,12 @@
+groups:  
+  - name: marketing
+    owner:
+      email: marketing@rackspace_airlines.com
+      slack: marketing-data
+      github: marketing-data-team
+
+  - name: operation
+    owner:
+      email: operation@rackspace_airlines.com
+      slack: operation-data
+      github: operation-data-team

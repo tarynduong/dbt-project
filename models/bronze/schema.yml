@@ -3,20 +3,35 @@ version: 2
 
 models:
   - name: stg_airports
-    description: >
-      Generates a transformed view of airport data, standardizing and enriching location information and making stable.
-      Provides an enriched dataset for analytical purposes without altering the original data.
+    description: Staged airports data from source
     meta:
-      model_maturity: in Dev
+      model_maturity: in dev
     columns:
       - name: airport_id
-        description: Airport IDs can take various forms and may differ depending country.
         tests:
           - dbt_expectations.expect_column_to_exist
           - unique
           - not_null
-  - name: stg_airlines
-  - name: stg_customers
+
   - name: stg_plane
+    description: Staged planes data from source
+    meta:
+      model_maturity: in dev
+    columns:
+      - name: plane_id
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - unique
+          - not_null  
+
   - name: stg_flights_2008
+    description: Staged flights data from source
+    meta:
+      model_maturity: in dev
+    columns:
+      - name: flight_id
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - unique
+          - not_null
 
